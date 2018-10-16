@@ -1,4 +1,6 @@
 @import "TopNavBar.css";
+@import "Main.css";
+@import "Profile.css";
 
 .App {
   text-align: center;
