@@ -1,7 +1,10 @@
 import React from 'react';
-import {ShotChart} from "./ShotChart"
+import {ShotChart} from "./ShotChart";
+import {CountSlider} from "./CountSlider";
 
 export class DataViewContainer extends React.Component{
+
+
     render() {
         return (
             <div className={"data-view"}>
@@ -11,6 +14,7 @@ export class DataViewContainer extends React.Component{
                     displayToolTips={true}
                     chartType={"hexbin"}
                 />
+                <CountSlider />
             </div>
         );
     }
