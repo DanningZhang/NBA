@@ -2,6 +2,7 @@
 @import "Main.css";
 @import "Profile.css";
 @import "ShotChar.css";
+@import "DataViewContainer.css";
 
 .App {
   text-align: center;
