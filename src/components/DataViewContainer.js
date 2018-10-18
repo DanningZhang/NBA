@@ -2,6 +2,7 @@ import React from 'react';
 import {ShotChart} from "./ShotChart";
 import {CountSlider} from "./CountSlider";
 import { Radio, Switch, Row, Col } from 'antd';
+import _ from 'lodash';
 
 const RadioGroup = Radio.Group;
 
@@ -35,10 +36,12 @@ export class DataViewContainer extends React.Component{
                     displayTooltips={displayTooltips}
                     chartType={chartType}
                 />
-                <CountSlider
-                    value={minCount}
-                    onChange={this.onCountSliderChange}
-                />
+                {
+                    chartType === 'hexbin' ? <CountSlider
+                        value={minCount}
+                        onChange={_.debounce(this.onCountSliderChange, 500)}
+                    /> : null
+                }
                 <Row>
                     <Col span={8} offset={7}>
                         <RadioGroup onChange={this.onChartTypeChange} value={chartType}>
