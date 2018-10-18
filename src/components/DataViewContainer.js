@@ -9,6 +9,11 @@ export class DataViewContainer extends React.Component{
     state = {
         chartType : "hexbin",
         displayTooltips : true,
+        minCount : 2,
+    }
+
+    onCountSliderChange = (minCount) => {
+        this.setState({minCount});
     }
 
     onChartTypeChange = (e) => {
@@ -20,17 +25,20 @@ export class DataViewContainer extends React.Component{
     }
 
     render() {
-        const {chartType} = this.state;
+        const {minCount, chartType, displayTooltips} = this.state;
 
         return (
             <div className={"data-view"}>
                 <ShotChart
                     playerId={this.props.playerId}
-                    minCount={2}
-                    displayTooltips={true}
-                    chartType={"hexbin"}
+                    minCount={minCount}
+                    displayTooltips={displayTooltips}
+                    chartType={chartType}
                 />
-                <CountSlider />
+                <CountSlider
+                    value={minCount}
+                    onChange={this.onCountSliderChange}
+                />
                 <Row>
                     <Col span={8} offset={7}>
                         <RadioGroup onChange={this.onChartTypeChange} value={chartType}>
