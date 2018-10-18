@@ -28,7 +28,12 @@ export class Main extends React.Component {
         return (
             <div className="main">
                 <Profile playerInfo={this.state.playerInfo}/>
-                <ShotChart playerId={this.state.playerInfo.playerId}/>
+                <ShotChart
+                    playerId={this.state.playerInfo.playerId}
+                    minCount={2}
+                    displayToolTips={true}
+                    chartType={"hexbin"}
+                />
             </div>
         )
     }
