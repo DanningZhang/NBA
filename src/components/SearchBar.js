@@ -1,5 +1,6 @@
 import React from 'react';
 import { AutoComplete, Input, Icon } from 'antd';
+import nba from 'nba';
 
 function onSelect(value) {
     console.log('onSelect', value);
@@ -12,11 +13,7 @@ export class SearchBar extends React.Component {
 
     handleSearch = (value) => {
         this.setState({
-            dataSource: !value ? [] : [
-                value,
-                value + value,
-                value + value + value,
-            ],
+            dataSource: !value ? [] : nba.searchPlayers(value).map(({fullName}) => fullName),
         });
     }
 
@@ -29,7 +26,7 @@ export class SearchBar extends React.Component {
                 dataSource={dataSource}
                 onSelect={onSelect}
                 onSearch={this.handleSearch}
-                placeholder="Search NBA player"
+                placeholder="Search NBA Player"
             >
                 <Input suffix={<Icon type="search" />} />
             </AutoComplete>
