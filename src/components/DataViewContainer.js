@@ -13,6 +13,13 @@ export class DataViewContainer extends React.Component{
         minCount : 2,
     }
 
+    /*
+        1. Where is the [state] maintained?
+        2. Write the [callback] func where the [state] is.
+        3. Pass this [callback] down to its child as [props] who can change the state.
+        4. Call the [props.callback] when needed in the child
+     */
+
     onCountSliderChange = (minCount) => {
         this.setState({minCount});
     }

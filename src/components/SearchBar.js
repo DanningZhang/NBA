@@ -33,17 +33,17 @@ export class SearchBar extends React.Component {
     render() {
         const { dataSource } = this.state;
         return (
-            <AutoComplete
-                className="search-bar"
-                size="large"
-                dataSource={dataSource}
-                onSelect={this.onSelect}
-                onSearch={this.handleSearch}
-                placeholder="Search NBA Player"
-                optionLabelProp="value"
-            >
-                <Input suffix={<Icon type="search" />} />
-            </AutoComplete>
+                <AutoComplete
+                    className="search-bar"
+                    size="large"
+                    dataSource={dataSource}
+                    onSelect={this.onSelect}
+                    onSearch={this.handleSearch}
+                    placeholder="Search NBA Player"
+                    optionLabelProp="value"
+                >
+                    <Input suffix={<Icon type="search" />} />
+                </AutoComplete>
         );
     }
 }
